@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: this.props.value,
+    value: this.props.counter.value,
     tags: ["tag1", "tag2", "tag3"],
   };
 
@@ -10,32 +10,9 @@ class Counter extends Component {
     fontSize: 15,
     fontWeight: "bold",
   };
-  render() {
-    return (
-      <div>
-        <span style={this.styles} className={this.getBadgeClasses()}>
-          {this.formatCount()}
-        </span>
-        <button
-          onClick={() => this.handleIncrement()}
-          className="btn btn-danger btn-sm"
-        >
-          Increment
-        </button>
-        <button
-          onClick={() => this.props.onDelete(this.props.id)}
-          className="btn btn-info btn-sm m-2"
-        >
-          Delete
-        </button>
-        {/* {this.state.tags.length === 0 && "Please create a new Tag"}
-        <ul>{this.renderTags()}</ul> */}
-      </div>
-    );
-  }
 
   handleIncrement = () => {
-    console.log("Increment clicked!!", this);
+    // console.log("Increment clicked!!", this);
     // this.state.value++; it won't work
     this.setState({
       value: this.state.value + 1,
@@ -62,6 +39,30 @@ class Counter extends Component {
   formatCount() {
     const { value } = this.state;
     return value == 0 ? "Zero" : value;
+  }
+
+  render() {
+    return (
+      <div>
+        <span style={this.styles} className={this.getBadgeClasses()}>
+          {this.formatCount()}
+        </span>
+        <button
+          onClick={() => this.handleIncrement()}
+          className="btn btn-danger btn-sm"
+        >
+          Increment
+        </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-info btn-sm m-2"
+        >
+          Delete
+        </button>
+        {/* {this.state.tags.length === 0 && "Please create a new Tag"}
+        <ul>{this.renderTags()}</ul> */}
+      </div>
+    );
   }
 }
 
