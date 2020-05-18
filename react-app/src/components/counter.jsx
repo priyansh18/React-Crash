@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 3,
+    value: this.props.value,
     tags: ["tag1", "tag2", "tag3"],
   };
   styles = {
@@ -29,9 +29,9 @@ class Counter extends Component {
 
   handleIncrement = () => {
     console.log("Increment clicked!!", this);
-    // this.state.count++; it won't work
+    // this.state.value++; it won't work
     this.setState({
-      count: this.state.count + 1,
+      count: this.state.value + 1,
     });
   };
 
