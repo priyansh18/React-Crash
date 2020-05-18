@@ -21,6 +21,12 @@ class Counter extends Component {
         >
           Increment
         </button>
+        <button
+          onClick={this.props.onDelete}
+          className="btn btn-info btn-sm m-2"
+        >
+          Delete
+        </button>
         {/* {this.state.tags.length === 0 && "Please create a new Tag"}
         <ul>{this.renderTags()}</ul> */}
       </div>
@@ -31,7 +37,7 @@ class Counter extends Component {
     console.log("Increment clicked!!", this);
     // this.state.value++; it won't work
     this.setState({
-      count: this.state.value + 1,
+      value: this.state.value + 1,
     });
   };
 
@@ -48,13 +54,13 @@ class Counter extends Component {
   }
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count == 0 ? "warning" : "primary";
+    classes += this.state.value == 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
-    return count == 0 ? "Zero" : count;
+    const { value } = this.state;
+    return value == 0 ? "Zero" : value;
   }
 }
 
