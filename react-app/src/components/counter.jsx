@@ -21,8 +21,8 @@ class Counter extends Component {
         >
           Increment
         </button>
-        {this.state.tags.length === 0 && "Please create a new Tag"}
-        <ul>{this.renderTags()}</ul>
+        {/* {this.state.tags.length === 0 && "Please create a new Tag"}
+        <ul>{this.renderTags()}</ul> */}
       </div>
     );
   }
