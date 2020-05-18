@@ -5,6 +5,7 @@ class Counter extends Component {
     value: this.props.value,
     tags: ["tag1", "tag2", "tag3"],
   };
+
   styles = {
     fontSize: 15,
     fontWeight: "bold",
@@ -22,7 +23,7 @@ class Counter extends Component {
           Increment
         </button>
         <button
-          onClick={this.props.onDelete}
+          onClick={() => this.props.onDelete(this.props.id)}
           className="btn btn-info btn-sm m-2"
         >
           Delete

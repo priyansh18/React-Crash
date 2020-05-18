@@ -10,6 +10,11 @@ class Counters extends Component {
       { id: 4, value: 1 },
     ],
   };
+
+  handleDelete = (counterId) => {
+    console.log("called", counterId);
+  };
+
   render() {
     return (
       <div>
@@ -18,15 +23,12 @@ class Counters extends Component {
             key={counter.id}
             onDelete={this.handleDelete}
             value={counter.value}
+            id={counter.id}
           />
         ))}
       </div>
     );
   }
-
-  handleDelete = () => {
-    console.log("called");
-  };
 }
 
 export default Counters;
